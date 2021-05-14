@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This is template </title>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- this is dictionary {{name}} -->
+    <!-- This example requires Tailwind CSS v2.0+ -->
+<div>
+    <nav class="bg-gray-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <div class="flex items-center">
+            <div class="flex-shrink-0">
+              <img class="h-8 w-8" src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" alt="Workflow">
+            </div>
+            <div class="hidden md:block">
+              <div class="ml-10 flex items-baseline space-x-4">
+                <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+  
+                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</a>
+              </div>
+            </div>
+          </div>
+              </button>  
+            </button>
+          </div>
+        </div>
+      </div>
+      </div>
+    </nav>
+  
+    <header class="bg-white shadow">
+      <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+        <h1 class="text-3xl font-bold text-gray-900">
+          Welcome To Text Analyser
+        </h1>
+      </div>
+    </header>
+    <main>
+      <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+      </div>
+    </main>
+  </div>
+    <!-- <h1>Welcome to Text Analyzing Engine</h1> -->
+<form action="/analyze" method="get">
+    <textarea name="text" style="margin: 0px; width: 80vw; height: 30vh;margin: auto; border: 2px solid darkblue;position: relative;bottom: 15px;" cols="30" rows="10" ></textarea><br>
+    <input type="checkbox" name="removepunctuation" id="removepunctuation"> Remove Punctuations
+    <input type="checkbox" name="capitalisefirst" id="capitalisefirst"> Capitalize First
+    <input type="checkbox" name="capitaliseall" id="capitaliseall"> Capitalize All
+    <input type="checkbox" name="newlineremover" id="newlineremover"> New Line remover
+    <input type="checkbox" name="extraspaceremove" id="extraspaceremove"> Extra Space remover
+    <input type="checkbox" name="charactercounter" id="charactercounter"> Character Counter<br>
+    <button type="submit" style="color: black;padding: 4px;border-radius: 2px; border: 2px solid grey;">Analyze Text Now</button>
+    
+    <script>
+        // Selecting All Ids
+        let removepunctuation=document.getElementById('removepunctuation');
+        let capitalisefirst=document.getElementById('capitalisefirst');
+        let capitaliseall =document.getElementById('capitaliseall');
+        let newlineremover=document.getElementById('newlineremover');
+        let extraspaceremove=document.getElementById('extraspaceremove');
+        let charactercounter=document.getElementById('charactercounter');
+        array1 = [removepunctuation,capitalisefirst,capitaliseall,newlineremover,extraspaceremove,charactercounter];
+        let yes=Boolean(true)
+        let no=Boolean(false)
+        array2=[]
+        function freezeChecker() {
+            for (let index = 0; index < array1.length; index++) {
+                if (array1[index].checked==yes){
+                    var freeze = index;
+                    console.log(freeze)
+                    // Created a variable freeze which is appended in an array only if it is already not present at index 0 
+                    if (array2[0]!=freeze){
+                        array2.push(freeze);
+                        if((array2.length)>1){
+                            // if the length of my freezer array gets more than one then it will reset all the buttons as well as the array itself which allows it to take input
+                            array1.forEach(element => {
+                                element.checked=no;
+                                array2=[]
+                            });
+                    }
+                    }
+                    
+                }
+        }};
+        setInterval(freezeChecker, 1);
+
+    </script>
+</form>
+</body>
+</html>
